@@ -1,0 +1,73 @@
+1.连接MySQL服务(MySQL数据库)的指令,查询电脑ip命令(ipconfig)
+mysql - h 主机IP -P 端口 -u 用户名 -p密码
+提醒:
+(1)-p密码不要有空格,
+(2)-p后面没有输入密码,回车会要求输入密码
+(3)如果没有写-h 主机ip,默认就是主机
+(4)如果没有写-p 端口,默认就是3306
+(5)在实际工作中,3306一般会修改
+(6)登入之前确保MySQL服务是启动状态 net start mysql 启动服务 net stop mysql 停止服务
+
+2.查看数据:
+show databases
+use mysql
+show tables;
+select * from user;  # 查询user表
+
+3.创建数据库:
+create database db02;  # 创建db02数据库
+use db02
+create table users (id int, name varchar(255), address varchar(255));  # 创建表格
+insert into users values(1,'tom','bj');  # 插入数据
+insert into users values(2,'jack','sh');  # 插入数据
+insert into users values(3,'shunping','gz');  # 插入数据
+select * from users;  # 查询users表格数据
+
+# 指令创建表,格式如下:注意(字体变蓝说明是个关键字,我们应该加个反引号``这个引起来)
+# CREATE TABLE `表名`(
+#	指定列名1 指定列类型(字段类型),
+#	id int,
+#	`password` VARCHAR(255),
+#	`birthday` DATE)
+#	CHARACTER SET utf8 COLLATE utf8_bin ENGINE INNODB;
+# character set:字符集,如不指定测为所在数据库字符集,].
+# collate:校对规则,如不指定则为所在数据库校对规则.
+# engine:存储引擎,涉及内容较多.
+# id        整形(int)
+# name      字符串(varchar(225))
+# password  字符串(varchar(255))
+# birthday  日期(date)
+CREATE TABLE `user02`(
+	id INT,
+	`name` VARCHAR(255),
+	`password` VARCHAR(255),
+	`birthday` DATE)
+	CHARACTER SET utf8 COLLATE utf8_bin ENGINE INNODB;
+
+4.备份恢复数据库或者表:
+(1)备份数据库(注意:在DOS执行,后面不带分号)
+mysqldump -u 用户名 -p -B 数据库1 数据库2 数据库n > d:\\path文件名.sql
+(2)备份库的表:(注意:备份表不要-B)
+mysqldump -u 用户名 -p密码 数据库名 表名1 表名2 表名n > d:\\path文件名.sql
+(3)恢复数据库(注意:进入mysql里面在执行,先创建新的数据库名,在在这个库名下面备份数据)
+create database 新库名;
+use 新库名;
+Source d:\\path文件名.sql
+
+5.删除数据库里面的表:
+drop table 表名:
+
+6.删除数据库(注意:进入mysql在执行,慎重使用.)
+drop database 库名;
+
+
+
+
+
+
+
+
+
+
+
+
