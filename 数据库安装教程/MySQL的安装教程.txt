@@ -1,0 +1,28 @@
+MySQL下载地址:https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.19-winx64.zip
+1.下载MySQL压缩包,解压到D:\ytlmysql\mysql-5.7.19-winx64目录下,在配置用户环境变量,配置到path:D:\hspmysql\mysql-5.7.19-winx64\bin里面
+
+2.把My.ini文件放到D:\ytlmysql\mysql-5.7.19-winx64\目录下
+
+3.以管理员的身份打开cmd,并切换到 cd /d D:\hspmysql\mysql-5.7.19-winx64\bin\ 目录下,执行mysqld -install
+
+4.初始化数据库:mysqld --initialize-insecure --user=mysql
+
+5.启动数据库:net start mysql
+6.停止数据库:net stop mysql
+
+7.进入mysql管理终端:mysql -u root -p (当前root用户密码为空)
+
+8.修改root用户密码:
+use mysql;
+update user set authentication_string=password("ytl")where user="root" and Host="localhost";
+# 上面语句就行修改root用户的密码为ytl
+# 注意在后面需要带';'分号,回车执行指令
+# 在执行flush privileges;刷新权限
+# 最后退出quit,注意这里只是退出终端,但是MySQL服务是还在运行的.
+
+9.回到D:\ytlmysql\mysql-5.7.19-winx64\目录下打开my.ini文件注销里面的# skip-grant-tables,注意修改完之后记得要重新启动才能生效.
+
+10.注销后再执行net stop mysql停止MySQL,在执行net start mysql启动MySQL服务
+
+11.现在重新进入MySQL,输入正确的用户和密码.
+mysql -u root -p
