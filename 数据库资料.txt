@@ -77,6 +77,11 @@ max(): 查询最大值 ：查询女生的最大年龄 select max(age) from stude
 min(): 查询最小值 ：查询1班的最小年龄 select min(age) from students;
 sum(): 求和 ：查询北京学生的年龄总和 select sum(age) from students where hometown='北京';
 avg(): 求平均值：查询女生的平均年龄 select avg(age) from students where sex='女' 
+
+查询表结构：
+	desc 表名;
+		示例：
+			desc student; 查询表student里面表的数据结构
     
     use library
     create table 学生成绩表
