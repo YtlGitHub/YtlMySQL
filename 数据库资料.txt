@@ -82,6 +82,10 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 	desc 表名;
 		示例：
 			desc student; 查询表student里面表的数据结构
+显示表的类型：
+	show full 表名;
+		示例：
+			show full sakila;
     
     use library
     create table 学生成绩表
