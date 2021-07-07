@@ -105,26 +105,21 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
     insert into 学生成绩表 values (20190702,'张兴兴','英语','90')
     insert into 学生成绩表 values (20190702,'张兴兴','数学','92')
     insert into 学生成绩表 values (20190703,'张珊','数学','95')
+	
     select a.学号,a.姓名,a.语文成绩,b.数学成绩,c.英语成绩 from
         (select 学号,姓名,成绩 语文成绩 from 学生成绩表 where 科目='语文') a
          inner join 
-	(select 学号,姓名,成绩 数学成绩 from 学生成绩表 where 科目='数学' ) b
-	 on a.学号=b.学号
-	 inner join
-	(select 学号,姓名,成绩 英语成绩 from 学生成绩表 where 科目='英语') c
-	 on b.学号=c.学号
+		(select 学号,姓名,成绩 数学成绩 from 学生成绩表 where 科目='数学' ) b
+		on a.学号=b.学号
+		inner join
+		(select 学号,姓名,成绩 英语成绩 from 学生成绩表 where 科目='英语') c
+		on b.学号=c.学号
+		
     select a.学号,a.姓名,a.语文成绩,b.数学成绩 from
-
-    (select 学号,姓名,成绩 语文成绩
-from 学生成绩表
-where 科目='语文') a
-
-    inner join
-
-    (select 学号,姓名,成绩 数学成绩
-from 学生成绩表
-where 科目='数学') b 
-    on a.学号=b.学号 and a.语文成绩>b.数学成绩
+		(select 学号,姓名,成绩 语文成绩 from 学生成绩表 where 科目='语文') a
+		inner join
+		(select 学号,姓名,成绩 数学成绩 from 学生成绩表 where 科目='数学') b 
+		on a.学号=b.学号 and a.语文成绩>b.数学成绩
 
 6、T-SQL中的关系运算符
     运算符	含义
