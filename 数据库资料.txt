@@ -144,7 +144,7 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 		T-SQL中的通配符--通配符经常和like关键字一起使用
 
 		通配符	含义
-		%		代表0个或多个字符--where name like '杨%'或者'%杨%'
+		%		代表0个或多个字符--where name like '杨%'或者'%天%'
 		下划线_	匹配任意一个字符--where id like 'a000_'或'[a-c]%'
 		[ ]		括号中所指定范围内的一个字符--where id '[abc]%'
 		[^]		不在括号中所指定范围内的一个字符--where '[^dcn]%'
