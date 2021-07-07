@@ -123,34 +123,31 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 		(select 学号,姓名,成绩 数学成绩 from 学生成绩表 where 科目='数学') b 
 		on a.学号=b.学号 and a.语文成绩>b.数学成绩;
 
-6、T-SQL中的关系运算符
-    运算符	含义
-		=	等于
-		>	大于
-		>=
-			大于或等于
-
-		<	小于
-		<=	小于或等于
-		<>	不等于
-		!	非，主要形式有 !=、!>、!<
+6、运算符：运算符都是这where后面写
+	T-SQL中的关系运算符
+		运算符	含义
+		=		等于
+		>		大于
+		>=		大于或等于
+		<		小于
+		<=		小于或等于
+		<>		不等于
+		!		非，主要形式有 !=、!>、!<
     T-SQL中的逻辑运算符
 		运算符	含义
-			AND	逻辑与
-			OR	逻辑或
-			NOT	逻辑非
-			between-之间 and--在某某和某某之间--where numstore between 20 and 30
-			in--在某某之间--where bid in（'a0001,a0002'）
-			in null--查询某列值为空的记录--select * from book where author2 is null
-			T-SQL中的通配符--通配符经常和like关键字一起使用
+		AND		逻辑与
+		OR		逻辑或
+		NOT		逻辑非
+		between-之间 and--在某某和某某之间--where numstore between 20 and 30
+		in--在某某之间--where bid in（'a0001,a0002'）
+		in null--查询某列值为空的记录--select * from book where author2 is null
+		T-SQL中的通配符--通配符经常和like关键字一起使用
 
 		通配符	含义
-			%	代表0个或多个字符--where name like '杨%'或者'%杨%'
-			下划线_	匹配任意一个字符--where id like 'a000_'或'[a-c]%'
-			[ ]	括号中所指定范围内的一个字符--where id '[abc]%'
-			[^]	不在括号中所指定范围内的一个字符--where '[^dcn]%'
-			
-		运算符都是这where后面写
+		%		代表0个或多个字符--where name like '杨%'或者'%杨%'
+		下划线_	匹配任意一个字符--where id like 'a000_'或'[a-c]%'
+		[ ]		括号中所指定范围内的一个字符--where id '[abc]%'
+		[^]		不在括号中所指定范围内的一个字符--where '[^dcn]%'
 
     7、限定返回记录的行数
 
