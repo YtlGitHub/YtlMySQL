@@ -88,23 +88,25 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 			show full sakila;
     
     use library
-    create table 学生成绩表
-    (
-    学号 varchar(10) not null ,
-    姓名 varchar(20) not null ,
-    科目 varchar(20),
-    成绩 char(2),
-    )
-    select * from 学生成绩表
-    insert into 学生成绩表 values (20190701,'王子涵','语文','97')
-    insert into 学生成绩表 values (20190702,'张兴兴','语文','95')
-    insert into 学生成绩表 values (20190701,'王子涵','数学','92')
-    insert into 学生成绩表 values (20190703,'张珊','语文','82')
-    insert into 学生成绩表 values (20190703,'张珊','英语','90')
-    insert into 学生成绩表 values (20190701,'王子涵','英语','95')
-    insert into 学生成绩表 values (20190702,'张兴兴','英语','90')
-    insert into 学生成绩表 values (20190702,'张兴兴','数学','92')
-    insert into 学生成绩表 values (20190703,'张珊','数学','95')
+    create table 学生成绩表;
+		(
+		学号 varchar(10) not null,
+		姓名 varchar(20) not null,
+		科目 varchar(20),
+		成绩 char(2),
+		);
+		
+    select * from 学生成绩表;
+	
+    insert into 学生成绩表 values (20190701,'王子涵','语文','97');
+    insert into 学生成绩表 values (20190702,'张兴兴','语文','95');
+    insert into 学生成绩表 values (20190701,'王子涵','数学','92');
+    insert into 学生成绩表 values (20190703,'张珊','语文','82');
+    insert into 学生成绩表 values (20190703,'张珊','英语','90');
+    insert into 学生成绩表 values (20190701,'王子涵','英语','95');
+    insert into 学生成绩表 values (20190702,'张兴兴','英语','90');
+    insert into 学生成绩表 values (20190702,'张兴兴','数学','92');
+    insert into 学生成绩表 values (20190703,'张珊','数学','95');
 	
     select a.学号,a.姓名,a.语文成绩,b.数学成绩,c.英语成绩 from
         (select 学号,姓名,成绩 语文成绩 from 学生成绩表 where 科目='语文') a
@@ -113,42 +115,42 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 		on a.学号=b.学号
 		inner join
 		(select 学号,姓名,成绩 英语成绩 from 学生成绩表 where 科目='英语') c
-		on b.学号=c.学号
+		on b.学号=c.学号;
 		
     select a.学号,a.姓名,a.语文成绩,b.数学成绩 from
 		(select 学号,姓名,成绩 语文成绩 from 学生成绩表 where 科目='语文') a
 		inner join
 		(select 学号,姓名,成绩 数学成绩 from 学生成绩表 where 科目='数学') b 
-		on a.学号=b.学号 and a.语文成绩>b.数学成绩
+		on a.学号=b.学号 and a.语文成绩>b.数学成绩;
 
 6、T-SQL中的关系运算符
     运算符	含义
-=	等于
->	大于
->=
-	大于或等于
+		=	等于
+		>	大于
+		>=
+			大于或等于
 
-<	小于
-<=	小于或等于
-<>	不等于
-!	非，主要形式有 !=、!>、!<
+		<	小于
+		<=	小于或等于
+		<>	不等于
+		!	非，主要形式有 !=、!>、!<
     T-SQL中的逻辑运算符
-运算符	含义
-AND	逻辑与
-OR	逻辑或
-NOT	逻辑非
-between-之间 and--在某某和某某之间--where numstore between 20 and 30
+		运算符	含义
+			AND	逻辑与
+			OR	逻辑或
+			NOT	逻辑非
+			between-之间 and--在某某和某某之间--where numstore between 20 and 30
+			in--在某某之间--where bid in（'a0001,a0002'）
+			in null--查询某列值为空的记录--select * from book where author2 is null
+			T-SQL中的通配符--通配符经常和like关键字一起使用
 
-in--在某某之间--where bid in（'a0001,a0002'）
-in null--查询某列值为空的记录--select * from book where author2 is null
-    T-SQL中的通配符--通配符经常和like关键字一起使用
-
-通配符	含义
-%	代表0个或多个字符--where name like '杨%'或者'%杨%'
-下划线_	匹配任意一个字符--where id like 'a000_'或'[a-c]%'
-[ ]	括号中所指定范围内的一个字符--where id '[abc]%'
-[^]	不在括号中所指定范围内的一个字符--where '[^dcn]%'
-运算符都是这where后面写
+		通配符	含义
+			%	代表0个或多个字符--where name like '杨%'或者'%杨%'
+			下划线_	匹配任意一个字符--where id like 'a000_'或'[a-c]%'
+			[ ]	括号中所指定范围内的一个字符--where id '[abc]%'
+			[^]	不在括号中所指定范围内的一个字符--where '[^dcn]%'
+			
+		运算符都是这where后面写
 
     7、限定返回记录的行数
 
