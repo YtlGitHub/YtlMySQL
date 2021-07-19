@@ -102,7 +102,7 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 	alter  table table1 modify  column column1  decimal(10,1) DEFAULT NULL COMMENT '注释';  -- 正常，能修改字段类型、类型长度、默认值、注释
 	alter  table table1 modify column1  decimal(10,2) DEFAULT NULL COMMENT '注释'; 
 -- 正常，能修改字段类型、类型长度、默认值、注释
-
+Mysql修改字段名、修改字段类型网址：https://blog.csdn.net/u010002184/article/details/79354136
 ————————————————
 
     
