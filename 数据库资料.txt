@@ -94,7 +94,17 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 			alter table t_test1 modify id int primary key auto_increment ;
 			
 修改name字段不能为空	
-	alter table familys_info modify name int not null;
+	alter table familys_info modify name not null;
+	
+
+--对某字段进行修改
+	ALTER  TABLE 表名 MODIFY [COLUMN] 字段名 新数据类型 新类型长度  新默认值  新注释;  -- COLUMN关键字可以省略不写
+	alter  table table1 modify  column column1  decimal(10,1) DEFAULT NULL COMMENT '注释';  -- 正常，能修改字段类型、类型长度、默认值、注释
+	alter  table table1 modify column1  decimal(10,2) DEFAULT NULL COMMENT '注释'; 
+-- 正常，能修改字段类型、类型长度、默认值、注释
+
+————————————————
+
     
     use library
     create table 学生成绩表;
