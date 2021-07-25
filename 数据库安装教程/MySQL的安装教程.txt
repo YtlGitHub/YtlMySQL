@@ -3,7 +3,7 @@ MySQL下载地址:https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.19-win
 
 2.把My.ini文件放到D:\ytlmysql\mysql-5.7.19-winx64\目录下
 
-3.以管理员的身份打开cmd,并切换到 cd /d D:\hspmysql\mysql-5.7.19-winx64\bin\ 目录下,执行mysqld -install
+3.以管理员的身份打开cmd,并切换到 cd /d D:\ytlmysql\mysql-5.7.19-winx64\bin\ 目录下,执行mysqld -install
 
 4.初始化数据库:mysqld --initialize-insecure --user=mysql
 
