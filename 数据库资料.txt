@@ -101,8 +101,24 @@ avg(): 求平均值：查询女生的平均年龄 select avg(age) from students 
 	ALTER  TABLE 表名 MODIFY [COLUMN] 字段名 新数据类型 新类型长度  新默认值  新注释;  -- COLUMN关键字可以省略不写
 	alter  table table1 modify  column column1  decimal(10,1) DEFAULT NULL COMMENT '注释';  -- 正常，能修改字段类型、类型长度、默认值、注释
 	alter  table table1 modify column1  decimal(10,2) DEFAULT NULL COMMENT '注释'; 
+	
 -- 正常，能修改字段类型、类型长度、默认值、注释
 Mysql修改字段名、修改字段类型网址：https://blog.csdn.net/u010002184/article/details/79354136
+
+----如何在MySQL中增加一列：----
+如果想在一个已经建好的表中添加一列，可以使用诸如：
+
+alter table TABLE_NAME add column NEW_COLUMN_NAME varchar(255) not null;
+
+这条语句会向已有的表中加入新的一列，这一列在表的最后一列位置。如果我们希望添加在指定的一列，可以用：
+
+alter table TABLE_NAME add column NEW_COLUMN_NAME varchar(255) not null after COLUMN_NAME;
+
+注意，上面这个命令的意思是说添加新列到某一列后面。如果想添加到第一列的话，可以用：
+
+alter table TABLE_NAME add column NEW_COLUMN_NAME varchar(255) not null first;
+----
+
 ————————————————
 
     
